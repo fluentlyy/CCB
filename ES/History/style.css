@@ -1,0 +1,351 @@
+._container:not(:last-child) {
+  padding: 0 20px;
+}
+.our-history {
+  margin-top: 80px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+.our-history__title {
+  font-family: "Lubalin Graph";
+  font-style: normal;
+  font-weight: 5;
+  font-size: 120px;
+  line-height: 100%;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #2e2e2e;
+}
+.our-history__subtitle {
+  font-family: "Lubalin Graph";
+  font-style: normal;
+  font-weight: 5;
+  font-size: 70px;
+  line-height: 100%;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: #2e2e2e;
+  margin: 80px 0 40px 0;
+}
+.our-history__subtitle span {
+  color: rgba(75, 97, 241, 1);
+}
+our-history__block {
+  display: none;
+}
+.our-history__block-1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 80px;
+}
+.block-1__imgs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.block-1__img {
+  flex: 1;
+  width: 325px;
+  height: 325px;
+  background: rgba(217, 217, 217, 1);
+  border-radius: 30px;
+}
+.block-1__content {
+  max-width: 670px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.content__txt-top {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  letter-spacing: -0.05em;
+  color: #2e2e2e;
+}
+.content__txt-bot {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+}
+.content__txt-bot p {
+  width: 50%;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  letter-spacing: -0.05em;
+  color: #2e2e2e;
+}
+.our-history__block-2 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+}
+.block-2__title {
+  font-family: "Lubalin Graph";
+  font-style: normal;
+  font-weight: 5;
+  font-size: 30px;
+  line-height: 110%;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: #2e2e2e;
+}
+.block-2__title span {
+  color: rgba(75, 97, 241, 1);
+}
+.block-2__text {
+  max-width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+.block-2__text-top {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  letter-spacing: -0.05em;
+  color: #2e2e2e;
+}
+.block-2__text-mid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.block-2__text-mid p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  letter-spacing: -0.05em;
+  color: #2e2e2e;
+}
+.block-2__text-bot {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  letter-spacing: -0.05em;
+  color: #2e2e2e;
+}
+.block__volunteers {
+  margin-top: 100px;
+}
+@media (max-width: 1133px) {
+  .our-history__block-1 {
+    flex-direction: column;
+  }
+  .block-1__content {
+    flex-direction: column;
+    max-width: 100%;
+  }
+  .block-1__imgs {
+    max-width: 100%;
+    width: 100%;
+  }
+  .block-1__img {
+    width: 50%;
+  }
+  .content__txt-bot {
+    flex-direction: column;
+    align-items: center;
+  }
+  .content__txt-top {
+    width: 100%;
+  }
+  .content__txt-bot p {
+    width: 100%;
+  }
+}
+@media (max-width: 1024px) {
+  .our-history {
+    margin-top: 60px;
+  }
+  .our-history__title {
+    font-family: "Lubalin Graph";
+    font-style: normal;
+    font-weight: 5;
+    font-size: 70px;
+    line-height: 100%;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: #2e2e2e;
+  }
+  .our-history__subtitle {
+    font-family: "Lubalin Graph";
+    font-style: normal;
+    font-weight: 5;
+    font-size: 60px;
+    line-height: 100%;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: #2e2e2e;
+    margin: 30px 0 20px 0;
+  }
+  .our-history__block {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+  }
+  .block-1__imgs {
+    flex-direction: column;
+  }
+  .block-1__img {
+    width: 308px;
+    height: 308px;
+    flex: auto;
+  }
+  .our-history__block-2 {
+    flex-direction: column;
+  }
+  .block-2__text {
+    max-width: 100%;
+  }
+  .block__volunteers {
+    margin-top: 80px;
+  }
+}
+@media (max-width: 710px) {
+  .our-history__block {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .block-1__imgs {
+    flex-direction: row;
+    width: 100%;
+    max-width: 100%;
+  }
+  .block-1__img {
+    width: auto;
+    height: 100%;
+    padding-top: 47.2%;
+  }
+  .content__txt-bot p {
+    width: 100%;
+  }
+  .content__txt-top {
+    width: 100%;
+  }
+  .our-history__block-1 {
+    margin-bottom: 30px;
+  }
+  .our-history__block-2 {
+  }
+}
+@media (max-width: 636px) {
+  .our-history__block-1 {
+    margin-bottom: 20px;
+  }
+  .block-1__imgs {
+    flex-direction: column;
+  }
+  .block-1__img {
+    max-width: 100%;
+    width: 100%;
+    height: 355px;
+  }
+  .our-history__block-2 {
+    margin-top: 60px;
+  }
+}
+@media (max-width: 435px) {
+  ._container:not(:last-child) {
+    padding: 0 10px;
+  }
+  .our-history {
+    margin-top: 40px;
+  }
+  .our-history__title {
+    font-family: "Lubalin Graph";
+    font-style: normal;
+    font-weight: 5;
+    font-size: 60px;
+    line-height: 100%;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: #2e2e2e;
+  }
+  .our-history__subtitle {
+    font-family: "Lubalin Graph";
+    font-style: normal;
+    font-weight: 5;
+    font-size: 40px;
+    line-height: 100%;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: #2e2e2e;
+    margin: 20px 0;
+  }
+  .our-history__block-1 {
+    margin-bottom: 20px;
+  }
+  .content__txt-bot {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .content__txt-bot p {
+    width: 100%;
+  }
+  .block-1__imgs {
+    gap: 10px;
+    margin-bottom: 60px;
+  }
+  .block-1__img {
+  }
+  .block-2__title {
+    font-family: "Lubalin Graph";
+    font-style: normal;
+    font-weight: 5;
+    font-size: 24px;
+    line-height: 110%;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: #2e2e2e;
+  }
+  .block-2__text-top {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 120%;
+    letter-spacing: -0.05em;
+    color: #2e2e2e;
+  }
+  .block-2__text {
+    gap: 5px;
+  }
+  .block-2__text-mid {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .block-2__text-bot {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: -0.05em;
+    color: #2e2e2e;
+  }
+}
