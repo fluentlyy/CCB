@@ -513,15 +513,29 @@ function handleMediaChange() {
         sliderCards.parentElement.querySelector(".arrow__left");
       const rightButton =
         sliderCards.parentElement.querySelector(".arrow__right");
+      const cardWidth = sliderCards.children[0].offsetWidth + 20; // Ширина картки + відступ
+      const visibleWidth = sliderCards.parentElement.offsetWidth;
+      const cardsPerView = Math.floor(visibleWidth / cardWidth);
 
       let currentIndex = 0;
+      const totalCards = sliderCards.children.length;
+      const maxIndex = Math.ceil((totalCards - cardsPerView) / 2);
 
       // Функція для оновлення позиції слайдера
       function updateSliderPosition() {
-        const cardWidth = sliderCards.children[0].offsetWidth + 20; // Ширина картки + відступ
-        sliderCards.style.transform = `translateX(-${
-          currentIndex * cardWidth * 2
-        }px)`; // Переміщуємо по дві картки
+        let translateX;
+
+        // Перевіряємо, чи це останній слайд
+        if (currentIndex === maxIndex) {
+          // Розраховуємо позицію для центрування останньої картки
+          const remainingCards = totalCards % 2 === 0 ? 2 : 1;
+          const centerOffset = (visibleWidth - remainingCards * cardWidth) / 2;
+          translateX = (totalCards - cardsPerView) * cardWidth - centerOffset;
+        } else {
+          translateX = currentIndex * cardWidth * 2;
+        }
+
+        sliderCards.style.transform = `translateX(-${translateX}px)`;
       }
 
       // Оновлення позиції слайдера при завантаженні сторінки
@@ -529,7 +543,7 @@ function handleMediaChange() {
 
       // Обробник для кнопки "вправо"
       rightButton.addEventListener("click", () => {
-        if (currentIndex < sliderCards.children.length / 2 - 1) {
+        if (currentIndex < maxIndex) {
           currentIndex++;
           updateSliderPosition();
         }
