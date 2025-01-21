@@ -634,7 +634,6 @@ body {
   color: #2e2e2e;
 }
 .content__text {
-  padding-left: 20px;
   max-width: 670px;
   display: flex;
   flex-direction: column;
@@ -945,7 +944,7 @@ body {
   letter-spacing: -0.03em;
   text-transform: uppercase;
   color: #2e2e2e;
-  margin: 0;
+  white-space: nowrap;
 }
 .card__info p {
   font-family: "Inter";
@@ -957,7 +956,6 @@ body {
   text-transform: uppercase;
   color: #2e2e2e;
   opacity: 0.6;
-  margin: 0;
 }
 .slider__buttons-box {
   max-width: 670px;
@@ -1145,7 +1143,7 @@ body {
   transform: rotate(15deg);
 }
 .telegram:hover {
-  background: rgba(35, 154, 214, 1);
+  background: #080808;
   transform: scale(0.95) rotate(15deg);
 }
 .telegram:hover svg {
@@ -1153,7 +1151,7 @@ body {
 }
 .telegram svg {
   width: 37px;
-  height: 30px;
+  height: 37px;
 }
 .linkedin {
   width: 140px;
@@ -1170,7 +1168,6 @@ body {
 }
 .linkedin:hover {
   background: rgba(12, 100, 197, 1);
-
   transform: scale(0.95);
 }
 .linkedin:hover svg {
@@ -1406,10 +1403,9 @@ body {
   .block-2__content {
     flex-direction: column;
     align-items: flex-start;
+    gap: 20px;
   }
   .content__text {
-    margin-top: 20px;
-    padding: 0;
   }
   .slider__wrapper {
     gap: 10px;
@@ -1471,25 +1467,26 @@ body {
     left: 18%;
   }
   .page__block-video {
+    margin-top: 80px;
   }
   .block__video {
   }
   .video__container {
   }
   .page__block-projects {
+    margin-top: 80px;
   }
   .block__projects {
+    gap: 20px;
   }
   .project__content {
     flex-direction: column;
     align-items: flex-start;
+    gap: 20px;
   }
   .project__text {
-    margin-top: 20px;
-    padding: 0;
   }
   .project__slider {
-    margin-top: 30px;
   }
   .slider__cards {
   }
@@ -1500,23 +1497,19 @@ body {
   .social__media {
   }
   .page__block-volunteers {
-    margin-top: 175px;
+    margin-top: 80px;
   }
   .block__volunteers {
   }
   .volunteers__but {
   }
   .footer {
-    margin-top: 80px;
+    margin-top: 100px;
   }
   .footer__body {
     padding: 30px;
-    gap: 30px;
   }
   .footer__top {
-    max-width: 825px;
-    width: 100%;
-    justify-content: space-between;
   }
   .top__box {
     display: flex;
@@ -1525,7 +1518,10 @@ body {
   .footer__sitemap {
   }
   .footer__bot {
-    align-items: flex-start;
+    align-items: flex-end;
+    gap: 20px;
+    flex-direction: column;
+    width: auto;
   }
   .bot__box {
     max-width: 600px;
@@ -1543,13 +1539,13 @@ body {
   }
 }
 @media (max-width: 992px) {
-  .footer__body {
-    padding: 30px 20px;
-  }
 }
 @media (max-width: 885px) {
-  .bot__box {
-    margin: 0;
+  .footer__body {
+    padding: 20px 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
   }
 }
 @media (max-width: 830px) {
@@ -1607,20 +1603,12 @@ body {
 @media (max-width: 675px) {
 }
 @media (max-width: 633px) {
-  .block-3__title {
-  }
 }
 @media (max-width: 576px) {
-  .footer__body {
-    padding: 30px 10px;
-  }
-  .footer__bot {
-    flex-direction: row-reverse;
-  }
   .content__circle {
     max-width: 100%;
-    width: 400px;
-    height: 250px;
+    width: 100%;
+    height: 179px;
     position: inherit;
     top: 0;
     left: 0;
@@ -1634,8 +1622,8 @@ body {
     line-height: 100%;
     text-align: center;
     letter-spacing: -0.05em;
-    text-transform: uppercase;
     color: #2e2e2e;
+    padding: 40px;
   }
   .main__block-3 {
     gap: 20px;
@@ -1646,55 +1634,16 @@ body {
     flex-direction: column;
     gap: 10px;
   }
-  .blue__txt {
-    font-family: "Lubalin Graph";
-    font-style: normal;
-    font-weight: 5;
-    font-size: 100px;
-    line-height: 100%;
-    text-align: center;
-    text-transform: uppercase;
-    color: #4b61f1;
+  .circle__title {
+    font-size: 65px;
+  }
+  .circe__text {
+    font-size: 24px;
   }
 }
 @media (max-width: 500px) {
-  .footer {
-    margin-top: 60px;
-  }
-  .footer__body {
-    padding: 20px 10px;
-    gap: 40px;
-  }
-  .footer__top {
-  }
-  .footer__top .language-dropdown {
-    display: block;
-    position: inherit;
-  }
-  .footer__mid {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    max-width: 100%;
-    width: 100%;
-  }
-  .footer__sitemap {
-  }
-  .footer__bot {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .bot__2024 {
-    white-space: nowrap;
-  }
 }
 @media (max-width: 495px) {
-  .volunteers__title {
-    font-size: 60px;
-  }
 }
 @media (max-width: 435px) {
   .header {
@@ -1706,9 +1655,7 @@ body {
     padding: 0 10px;
   }
   .page__main-block-1 {
-  }
-  .main-block:not(:first-child) {
-    margin-top: 60px;
+    margin-top: 40px;
   }
   .body__container {
   }
@@ -1717,7 +1664,6 @@ body {
     margin-top: 16px;
   }
   .main__block-1 {
-    padding: 40px 0;
   }
   .block-1__title {
     font-family: "Lubalin Graph";
@@ -1730,21 +1676,26 @@ body {
     text-transform: uppercase;
     color: #2e2e2e;
   }
-  .block-1__paragraph {
+  .block-1__box {
+    flex-direction: column;
+    gap: 0;
+  }
+  .block-1__p {
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
-    text-align: center;
+    text-align: justify;
     letter-spacing: -0.05em;
     color: #2e2e2e;
-    margin: 20px 0;
   }
   .page__main-block-2 {
+    margin-top: 60px;
   }
   .main__block-2 {
     padding: 0;
+    gap: 20px;
   }
   .content__title {
     font-family: "Lubalin Graph";
@@ -1762,19 +1713,22 @@ body {
     font-weight: 400;
     font-size: 18px;
     line-height: 120%;
+    text-align: justify;
     letter-spacing: -0.05em;
     color: #2e2e2e;
-    width: auto;
-    margin: 0;
-    padding: 0;
   }
   .content__text p {
-    margin: 20px 0;
-  }
-  .content__text a {
-    margin: 0;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 120%;
+    text-align: justify;
+    letter-spacing: -0.05em;
+    color: #2e2e2e;
   }
   .page__main-block-3 {
+    margin-top: 60px;
   }
   .main__block-3 {
   }
@@ -1795,7 +1749,6 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin: 20px auto 0 auto;
   }
   .blue__txt {
     font-family: "Lubalin Graph";
@@ -1808,8 +1761,10 @@ body {
     color: #4b61f1;
   }
   .page__block-video {
+    margin-top: 60px;
   }
   .block__video {
+    gap: 20px;
   }
   .video__title {
     font-family: "Lubalin Graph";
@@ -1820,11 +1775,11 @@ body {
     letter-spacing: -0.05em;
     text-transform: uppercase;
     color: #2e2e2e;
-    margin-bottom: 20px;
   }
   .video__container {
   }
   .page__block-projects {
+    margin-top: 60px;
   }
   .block__projects {
   }
@@ -1850,6 +1805,7 @@ body {
     font-weight: 400;
     font-size: 18px;
     line-height: 120%;
+    text-align: justify;
     letter-spacing: -0.05em;
     color: #2e2e2e;
   }
@@ -1874,6 +1830,7 @@ body {
     color: #2e2e2e;
   }
   .page__block-social {
+    margin-top: 60px;
   }
   .block__social {
   }
@@ -1911,6 +1868,10 @@ body {
     color: #2e2e2e;
   }
   .page__block-volunteers {
+    margin-top: 60px;
+  }
+  .volunteers__buttons {
+    gap: 10px;
   }
   .volunteers__but {
     font-family: "Lubalin Graph";
@@ -1936,6 +1897,9 @@ body {
     letter-spacing: -0.01em;
     text-transform: uppercase;
     color: #fffef7;
+  }
+  .footer {
+    margin-top: 60px;
   }
 }
 @media (hover: none) and (pointer: coarse) {
