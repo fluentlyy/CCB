@@ -69,6 +69,9 @@
   gap: 20px; /* відступ між елементами */
   width: 100%;
 }
+.about-projects__imgs img {
+  object-fit: cover;
+}
 .img__box {
   display: flex;
   align-items: center;
@@ -80,6 +83,7 @@
   height: 300px;
   background: #d9d9d9;
   border-radius: 30px;
+  object-position: center;
 }
 .about-projects__img {
   width: 100%;
@@ -88,6 +92,7 @@
   height: 620px;
   background: #d9d9d9;
   border-radius: 30px;
+  object-position: 50% 30%;
 }
 @media (max-width: 1366px) {
   .main__about-projects {
@@ -211,6 +216,14 @@
     width: 100%;
     height: 355px;
   }
+  .about-projects__img {
+    width: 355px;
+    min-width: 0;
+  }
+  .about-projects__imgs img {
+    width: 100%;
+    height: 355px;
+  }
 }
 @media (max-width: 435px) {
   .main__about-projects {
@@ -221,12 +234,10 @@
     font-family: "Lubalin Graph";
     font-style: normal;
     font-weight: 5;
-    font-size: 60px;
-    line-height: 100%;
-    letter-spacing: -0.05em;
+    font-size: 35px;
+    line-height: 110%;
     text-transform: uppercase;
     color: #2e2e2e;
-    text-align: left;
   }
   .about-projects__content h5 {
     font-family: "Inter";

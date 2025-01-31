@@ -1,87 +1,5 @@
-let blockTitle3 = document.querySelector(".block-3__title");
 function handleMediaChange() {
   if (window.innerWidth <= 434) {
-    document.querySelectorAll(".slider__cards").forEach((sliderCards) => {
-      let startX = 0; // Початкова координата дотику
-      let endX = 0; // Кінцева координата дотику
-      let currentIndex = 0; // Поточний індекс слайда
-
-      // Функція для оновлення позиції слайдера
-      function updateSliderPosition() {
-        const cardWidth = sliderCards.children[0].offsetWidth + 20; // Ширина картки + відступ
-        sliderCards.style.transform = `translateX(-${
-          currentIndex * cardWidth
-        }px)`;
-      }
-
-      // Оновлення позиції слайдера при завантаженні сторінки
-      updateSliderPosition();
-
-      // Обробник початку свайпу
-      sliderCards.addEventListener("touchstart", (event) => {
-        startX = event.touches[0].clientX; // Зчитуємо початкову координату дотику
-      });
-
-      // Обробник закінчення свайпу
-      sliderCards.addEventListener("touchend", (event) => {
-        endX = event.changedTouches[0].clientX; // Зчитуємо кінцеву координату дотику
-        const swipeDistance = endX - startX; // Визначаємо напрямок свайпу
-
-        // Свайп вправо
-        if (swipeDistance > 50 && currentIndex > 0) {
-          currentIndex--;
-          updateSliderPosition();
-        }
-
-        // Свайп вліво
-        if (
-          swipeDistance < -50 &&
-          currentIndex < sliderCards.children.length - 1
-        ) {
-          currentIndex++;
-          updateSliderPosition();
-        }
-      });
-    });
-  } else if (window.innerWidth <= 500) {
-  } else if (window.innerWidth <= 576) {
-  } else if (window.innerWidth <= 830) {
-    document.querySelectorAll(".slider__cards").forEach((sliderCards) => {
-      const leftButton =
-        sliderCards.parentElement.querySelector(".arrow__left");
-      const rightButton =
-        sliderCards.parentElement.querySelector(".arrow__right");
-
-      let currentIndex = 0;
-
-      // Функція для оновлення позиції слайдера
-      function updateSliderPosition() {
-        const cardWidth = sliderCards.children[0].offsetWidth + 20; // Ширина картки + відступ
-        sliderCards.style.transform = `translateX(-${
-          currentIndex * cardWidth
-        }px)`; // Переміщуємо на ширину однієї картки
-      }
-
-      // Оновлення позиції слайдера при завантаженні сторінки
-      updateSliderPosition();
-
-      // Обробник для кнопки "вправо"
-      rightButton.addEventListener("click", () => {
-        if (currentIndex < sliderCards.children.length - 1) {
-          // Коригуємо умову
-          currentIndex++;
-          updateSliderPosition();
-        }
-      });
-
-      // Обробник для кнопки "вліво"
-      leftButton.addEventListener("click", () => {
-        if (currentIndex > 0) {
-          currentIndex--;
-          updateSliderPosition();
-        }
-      });
-    });
   } else if (window.innerWidth <= 885) {
     document.querySelector(".footer__body").innerHTML = `<svg
   class="footer__logo"
@@ -190,67 +108,83 @@ function handleMediaChange() {
   </p>
 </div>
 <div class="bot__group">
-  <a class="bot__icon"
-    ><svg
-      width="35"
-      height="35"
-      viewBox="0 0 35 35"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M5.06465 17.4477C5.12493 17.4186 5.18524 17.3909 5.24401 17.3647C6.26581 16.9072 7.30116 16.4789 8.33501 16.0506C8.39077 16.0506 8.48418 15.9879 8.53693 15.9675C8.61681 15.934 8.69669 15.902 8.77657 15.8685C8.93029 15.8044 9.08402 15.7417 9.23623 15.6776C9.54367 15.5509 9.84959 15.4241 10.157 15.2974L11.9971 14.5354C13.2239 14.0284 14.4522 13.52 15.6789 13.013C16.9057 12.506 18.1339 11.9976 19.3607 11.4906C20.5874 10.9836 21.8157 10.4751 23.0424 9.96815C24.2692 9.46116 25.4975 8.95271 26.7242 8.44572C26.997 8.33208 27.2924 8.16308 27.5848 8.11355C27.8304 8.0713 28.07 7.98972 28.3172 7.94456C28.7859 7.8586 29.3028 7.82364 29.7519 8.01158C29.9071 8.07713 30.0503 8.16892 30.1694 8.28401C30.739 8.82888 30.6591 9.72339 30.5386 10.4897C29.6991 15.8306 28.8597 21.1729 28.0188 26.5138C27.9042 27.2466 27.7475 28.0508 27.1492 28.5141C26.6428 28.906 25.9224 28.9497 25.297 28.7836C24.6716 28.6161 24.12 28.265 23.579 27.9197C21.3349 26.4832 19.0894 25.0468 16.8454 23.6103C16.3119 23.2694 15.7181 22.8236 15.7242 22.2044C15.7272 21.8314 15.9577 21.4993 16.1928 21.2035C18.143 18.7443 20.9567 17.0544 23.05 14.7088C23.3454 14.3781 23.5775 13.7808 23.1721 13.5899C22.9309 13.4763 22.6536 13.6307 22.4336 13.7779C19.6666 15.6354 16.9012 17.4943 14.1342 19.3518C13.2315 19.9579 12.285 20.5815 11.1969 20.7301C10.2234 20.8641 9.24377 20.6018 8.30186 20.3338C7.51215 20.1094 6.72393 19.8792 5.93875 19.6418C5.52129 19.5165 5.09027 19.381 4.76776 19.0969C4.44525 18.8128 4.2599 18.335 4.45431 17.9562C4.57639 17.7187 4.813 17.5686 5.06167 17.4463L5.06465 17.4477Z"
-        fill="#FFFEF7"
-      />
-    </svg>
-  </a>
-  <a class="bot__icon"
-    ><svg
-      width="35"
-      height="35"
-      viewBox="0 0 35 35"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M19.8059 10.2899V13.9908H24.3827L23.658 18.9761H19.8059V30.4619C19.0336 30.5691 18.2434 30.625 17.4414 30.625C16.5155 30.625 15.6064 30.5512 14.721 30.4084V18.9761H10.5V13.9908H14.721V9.46264C14.721 6.65337 16.9975 4.375 19.8071 4.375V4.37738C19.8155 4.37738 19.8226 4.375 19.8309 4.375H24.3839V8.68652H21.4089C20.5247 8.68652 19.8071 9.40431 19.8071 10.2888L19.8059 10.2899Z"
-        fill="#FFFEF7"
-      />
-    </svg>
-  </a>
-  <a class="bot__icon"
-    ><svg
-      width="35"
-      height="35"
-      viewBox="0 0 35 35"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M28.8612 10.731V15.2554C28.0708 15.1782 27.0436 14.9986 25.9074 14.5822C24.4238 14.0383 23.3194 13.2946 22.5961 12.7187V21.8633L22.5776 21.8347C22.5894 22.016 22.5961 22.2007 22.5961 22.387C22.5961 26.9282 18.9021 30.625 14.3605 30.625C9.81899 30.625 6.125 26.9282 6.125 22.387C6.125 17.8458 9.81899 14.1474 14.3605 14.1474C14.8053 14.1474 15.2417 14.1827 15.668 14.2515V18.7104C15.2584 18.5644 14.8187 18.4855 14.3605 18.4855C12.2106 18.4855 10.4601 20.2348 10.4601 22.387C10.4601 24.5393 12.2106 26.2886 14.3605 26.2886C16.5105 26.2886 18.261 24.5376 18.261 22.387C18.261 22.3065 18.2593 22.2259 18.2542 22.1453V4.375L22.774 4.375C22.7907 4.75777 22.8059 5.14391 22.8226 5.52668C22.8529 6.28047 23.1214 7.00403 23.5896 7.59665C24.1384 8.29336 24.9491 9.10255 26.087 9.7489C27.1527 10.3516 28.153 10.6118 28.8612 10.7344V10.731Z"
-        fill="#FFFEF7"
-      />
-    </svg>
-  </a>
-  <a class="bot__icon"
-    ><svg
-      width="35"
-      height="35"
-      viewBox="0 0 35 35"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M5.30794 9.56996C4.68486 8.99145 4.375 8.27537 4.375 7.42336C4.375 6.57134 4.68652 5.82375 5.30794 5.24359C5.93102 4.66508 6.73308 4.375 7.71575 4.375C8.69843 4.375 9.46901 4.66508 10.0904 5.24359C10.7135 5.8221 11.0234 6.54979 11.0234 7.42336C11.0234 8.29692 10.7119 8.99145 10.0904 9.56996C9.46735 10.1485 8.67689 10.4386 7.71575 10.4386C6.75462 10.4386 5.93102 10.1485 5.30794 9.56996ZM10.4997 12.8885V30.625H4.89698L4.89698 12.8885H10.4997Z"
-        fill="#FFFEF7"
-      />
-      <path
-        d="M29.1509 14.6405C30.3722 15.9666 30.982 17.7867 30.982 20.104V30.3116H25.661V20.8234C25.661 19.6548 25.3577 18.7464 24.7529 18.0999C24.148 17.4535 23.3327 17.1286 22.3119 17.1286C21.2911 17.1286 20.4758 17.4518 19.8709 18.0999C19.2661 18.7464 18.9628 19.6548 18.9628 20.8234V30.3116H13.6104V12.8387H18.9628V15.156C19.5047 14.3836 20.2356 13.7736 21.1536 13.3244C22.0717 12.8752 23.104 12.6514 24.2524 12.6514C26.2973 12.6514 27.9312 13.3144 29.1509 14.6388V14.6405Z"
-        fill="#FFFEF7"
-      />
-    </svg>
-  </a>
-</div>
+            <a
+              href="https://www.instagram.com/culturacontrabalas?igsh=MTB6dXRtZG5xanI3cw=="
+              class="bot__icon"
+              ><svg
+                width="35"
+                height="35"
+                viewBox="0 0 35 35"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M24.049 4.375L10.359 4.375C6.57684 4.375 3.5 7.45275 3.5 11.236L3.5 23.764C3.5 27.5473 6.57684 30.625 10.359 30.625H24.049C27.8311 30.625 30.9079 27.5473 30.9079 23.764V11.236C30.9079 7.45275 27.8311 4.375 24.049 4.375ZM5.91962 11.236C5.91962 8.78773 7.91143 6.79533 10.359 6.79533H24.049C26.4965 6.79533 28.4883 8.78773 28.4883 11.236V23.764C28.4883 26.2123 26.4965 28.2047 24.049 28.2047H10.359C7.91143 28.2047 5.91962 26.2123 5.91962 23.764V11.236Z"
+                  fill="#FFFEF7"
+                />
+                <path
+                  d="M17.2047 23.8804C20.7218 23.8804 23.5847 21.0182 23.5847 17.4986C23.5847 13.9789 20.7233 11.1167 17.2047 11.1167C13.6861 11.1167 10.8247 13.9789 10.8247 17.4986C10.8247 21.0182 13.6861 23.8804 17.2047 23.8804ZM17.2047 13.5386C19.3887 13.5386 21.1651 15.3155 21.1651 17.5001C21.1651 19.6848 19.3887 21.4616 17.2047 21.4616C15.0207 21.4616 13.2443 19.6848 13.2443 17.5001C13.2443 15.3155 15.0207 13.5386 17.2047 13.5386Z"
+                  fill="#FFFEF7"
+                />
+                <path
+                  d="M24.175 12.1475C25.1221 12.1475 25.8941 11.3769 25.8941 10.428C25.8941 9.4791 25.1237 8.7085 24.175 8.7085C23.2264 8.7085 22.4561 9.4791 22.4561 10.428C22.4561 11.3769 23.2264 12.1475 24.175 12.1475Z"
+                  fill="#FFFEF7"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61572574013250"
+              class="bot__icon"
+              ><svg
+                width="35"
+                height="35"
+                viewBox="0 0 35 35"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19.8059 10.2899V13.9908H24.3827L23.658 18.9761H19.8059V30.4619C19.0336 30.5691 18.2434 30.625 17.4414 30.625C16.5155 30.625 15.6064 30.5512 14.721 30.4084V18.9761H10.5V13.9908H14.721V9.46264C14.721 6.65337 16.9975 4.375 19.8071 4.375V4.37738C19.8155 4.37738 19.8226 4.375 19.8309 4.375H24.3839V8.68652H21.4089C20.5247 8.68652 19.8071 9.40431 19.8071 10.2888L19.8059 10.2899Z"
+                  fill="#FFFEF7"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.tiktok.com/@culturacontrabalas?_t=ZM-8t8oKxE05d0&_r=1"
+              class="bot__icon"
+              ><svg
+                width="35"
+                height="35"
+                viewBox="0 0 35 35"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M28.8612 10.731V15.2554C28.0708 15.1782 27.0436 14.9986 25.9074 14.5822C24.4238 14.0383 23.3194 13.2946 22.5961 12.7187V21.8633L22.5776 21.8347C22.5894 22.016 22.5961 22.2007 22.5961 22.387C22.5961 26.9282 18.9021 30.625 14.3605 30.625C9.81899 30.625 6.125 26.9282 6.125 22.387C6.125 17.8458 9.81899 14.1474 14.3605 14.1474C14.8053 14.1474 15.2417 14.1827 15.668 14.2515V18.7104C15.2584 18.5644 14.8187 18.4855 14.3605 18.4855C12.2106 18.4855 10.4601 20.2348 10.4601 22.387C10.4601 24.5393 12.2106 26.2886 14.3605 26.2886C16.5105 26.2886 18.261 24.5376 18.261 22.387C18.261 22.3065 18.2593 22.2259 18.2542 22.1453V4.375L22.774 4.375C22.7907 4.75777 22.8059 5.14391 22.8226 5.52668C22.8529 6.28047 23.1214 7.00403 23.5896 7.59665C24.1384 8.29336 24.9491 9.10255 26.087 9.7489C27.1527 10.3516 28.153 10.6118 28.8612 10.7344V10.731Z"
+                  fill="#FFFEF7"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/cultura-contra-balas/"
+              class="bot__icon"
+              ><svg
+                width="35"
+                height="35"
+                viewBox="0 0 35 35"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5.30794 9.56996C4.68486 8.99145 4.375 8.27537 4.375 7.42336C4.375 6.57134 4.68652 5.82375 5.30794 5.24359C5.93102 4.66508 6.73308 4.375 7.71575 4.375C8.69843 4.375 9.46901 4.66508 10.0904 5.24359C10.7135 5.8221 11.0234 6.54979 11.0234 7.42336C11.0234 8.29692 10.7119 8.99145 10.0904 9.56996C9.46735 10.1485 8.67689 10.4386 7.71575 10.4386C6.75462 10.4386 5.93102 10.1485 5.30794 9.56996ZM10.4997 12.8885V30.625H4.89698L4.89698 12.8885H10.4997Z"
+                  fill="#FFFEF7"
+                />
+                <path
+                  d="M29.1509 14.6405C30.3722 15.9666 30.982 17.7867 30.982 20.104V30.3116H25.661V20.8234C25.661 19.6548 25.3577 18.7464 24.7529 18.0999C24.148 17.4535 23.3327 17.1286 22.3119 17.1286C21.2911 17.1286 20.4758 17.4518 19.8709 18.0999C19.2661 18.7464 18.9628 19.6548 18.9628 20.8234V30.3116H13.6104V12.8387H18.9628V15.156C19.5047 14.3836 20.2356 13.7736 21.1536 13.3244C22.0717 12.8752 23.104 12.6514 24.2524 12.6514C26.2973 12.6514 27.9312 13.3144 29.1509 14.6388V14.6405Z"
+                  fill="#FFFEF7"
+                />
+              </svg>
+            </a>
+          </div>
 <p class="bot__2024">© 2024</p>`;
   } else if (window.innerWidth <= 1024) {
     document.querySelector(".footer__body").innerHTML = `
@@ -389,7 +323,9 @@ function handleMediaChange() {
                 />
               </svg>
             </a>
-            <a href="" class="bot__icon"
+            <a
+              href="https://www.facebook.com/profile.php?id=61572574013250"
+              class="bot__icon"
               ><svg
                 width="35"
                 height="35"
@@ -419,7 +355,9 @@ function handleMediaChange() {
                 />
               </svg>
             </a>
-            <a class="bot__icon"
+            <a
+              href="https://www.linkedin.com/company/cultura-contra-balas/"
+              class="bot__icon"
               ><svg
                 width="35"
                 height="35"
@@ -463,176 +401,190 @@ function handleMediaChange() {
   </nav>
 </div>
     `;
-  } else if (window.innerWidth <= 1199) {
   } else if (window.innerWidth <= 1400) {
-    document.querySelectorAll(".slider__cards").forEach((sliderCards) => {
-      const leftButton =
-        sliderCards.parentElement.querySelector(".arrow__left");
-      const rightButton =
-        sliderCards.parentElement.querySelector(".arrow__right");
-
-      let currentIndex = 1;
-
-      // Функція для оновлення позиції слайдера
-      function updateSliderPosition() {
-        const cardWidth = sliderCards.children[0].offsetWidth + 20; // Ширина картки + відступ
-        const maxOffset = sliderCards.scrollWidth - sliderCards.offsetWidth; // Максимально можливий зсув
-        const currentOffset = currentIndex * (cardWidth / 2);
-
-        // Перевіряємо, чи не перевищує зсув максимально можливого значення
-        const translateX = Math.min(currentOffset, maxOffset);
-        sliderCards.style.transform = `translateX(-${translateX}px)`;
-      }
-
-      // Оновлення позиції слайдера при завантаженні сторінки
-      updateSliderPosition();
-
-      // Обробник для кнопки "вправо"
-      rightButton.addEventListener("click", () => {
-        const cardWidth = sliderCards.children[0].offsetWidth + 20; // Ширина картки + відступ
-        const maxOffset = sliderCards.scrollWidth - sliderCards.offsetWidth; // Максимально можливий зсув
-        const nextOffset = (currentIndex + 1) * (cardWidth / 2); // Наступна позиція
-
-        if (nextOffset <= maxOffset) {
-          currentIndex++;
-          updateSliderPosition();
-        }
-      });
-
-      // Обробник для кнопки "вліво"
-      leftButton.addEventListener("click", () => {
-        if (currentIndex > 0) {
-          currentIndex--;
-          updateSliderPosition();
-        }
-      });
-    });
+    document.querySelector(".swiper-wrapper").innerHTML = `
+    <div class="swiper-slide">
+    <a href="../Projects/Project-1/index.html" class="slider__card">
+      <img src="./imgs/cards/Rectangle 1011.png" alt="" class="card__img" />
+      <div class="card__info">
+        <h2>Cursos de Español</h2>
+        <p>marzo de 2022</p>
+      </div>
+    </a>
+  </div>
+  <div class="swiper-slide">
+    <a href="../Projects/Project-2/index.html" class="slider__card">
+      <img
+        src="./imgs/cards/IMG_20250119_153550_667.png"
+        alt=""
+        class="card__img"
+      />
+      <div class="card__info">
+        <h2>Cenas Benéficas</h2>
+        <p>junio de 2022</p>
+      </div>
+    </a>
+  </div>
+  <div class="swiper-slide">
+    <a href="../Projects/Project-3/index.html" class="slider__card">
+      <img src="./imgs/cards/Rectangle 101-11.png" alt="" class="card__img" />
+      <div class="card__info">
+        <h2>La Canción “Que canten los niños”.</h2>
+        <p>febrero de 2024</p>
+      </div>
+    </a>
+  </div>
+  <div class="swiper-slide">
+    <a href="../Projects/Project-4/index.html" class="slider__card">
+      <img src="./imgs/cards/Rectangle 101-21.png" alt="" class="card__img" />
+      <div class="card__info">
+        <div class="marquee__text marquee-0">
+                        <div>
+                          <h2>Concierto en Madrid: Un Canto a la Esperanza</h2>
+                          <h2>Concierto en Madrid: Un Canto a la Esperanza</h2>
+                        </div>
+                      </div>
+        <p>5 de diciembre de 2023</p>
+      </div>
+    </a>
+  </div>
+  <div class="swiper-slide">
+    <a href="../Projects/Project-6/index.html" class="slider__card">
+      <img src="./imgs/cards/Rectangle 101.png" alt="" class="card__img" />
+      <div class="card__info">
+        <h2>Salvar a los que salvan: los médicos.</h2>
+        <p>5 de diciembre de 2023</p>
+      </div>
+    </a>
+  </div>
+  <div class="swiper-slide">
+    <a href="../Projects/Project-5/index.html" class="slider__card">
+      <img src="./imgs/cards/Rectangle 101-1.png" alt="" class="card__img" />
+      <div class="card__info">
+        <div class="marquee__text marquee-1">
+                        <div>
+                          <h2>
+                            El Deporte Une: futbolistas jóvenes de Ucrania
+                          </h2>
+                          <h2>
+                            El Deporte Une: futbolistas jóvenes de Ucrania
+                          </h2>
+                        </div>
+                      </div>
+        <p>abril de 2023</p>
+      </div>
+    </a>
+  </div>
+  <div class="swiper-slide">
+    <a href="../Projects/Project-7/index.html" class="slider__card">
+      <img src="./imgs/cards/image.png" alt="" class="card__img" />
+      <div class="card__info">
+        <h2>Mujeres Fuertes, Sociedades Fuertes (1)</h2>
+        <p>mayo de 2024</p>
+      </div>
+    </a>
+  </div>
+  <div class="swiper-slide">
+    <a href="../Projects/Project-8/index.html" class="slider__card">
+      <img src="./imgs/cards/Rectangle 101-2.png" alt="" class="card__img" />
+      <div class="card__info">
+        <h2>Mujeres Fuertes, Sociedades Fuertes (2)</h2>
+        <p>febrero de 2024</p>
+      </div>
+    </a>
+  </div>
+  <div class="swiper-slide">
+    <a href="../Projects/Project-9/index.html" class="slider__card">
+      <img src="./imgs/cards/imageee.png" alt="" class="card__img" />
+      <div class="card__info">
+        <h2>Mujeres Fuertes, Sociedades Fuertes (3)</h2>
+        <p>septiembre de 2024</p>
+      </div>
+    </a>
+  </div>
+  <div class="swiper-slide">
+    <a href="../Projects/Project-10/index.html" class="slider__card">
+      <img src="./imgs/cards/Rectangle 101-3.png" alt="" class="card__img" />
+      <div class="card__info">
+        <div class="marquee__text marquee-2">
+                        <div>
+                          <h2>
+                            Campamentos de Recuperación Psicológica y Liderazgo
+                            Social para (3)
+                          </h2>
+                          <h2>
+                            Campamentos de Recuperación Psicológica y Liderazgo
+                            Social para (3)
+                          </h2>
+                        </div>
+                      </div>
+        <p>enero de 2024</p>
+      </div>
+    </a>
+  </div>
+  <div class="swiper-slide">
+    <a href="../Projects/Project-11/index.html" class="slider__card">
+      <img
+        src="./imgs/cards/IMG_20240621_162316_118.png"
+        alt=""
+        class="card__img"
+      />
+      <div class="card__info">
+        <div class="marquee__text marquee-3">
+                        <div>
+                          <h2>Desarrollo de Liderazgo Social y Voluntariado</h2>
+                          <h2>Desarrollo de Liderazgo Social y Voluntariado</h2>
+                        </div>
+                      </div>
+        <p>junio de 2024</p>
+      </div>
+    </a>
+  </div>
+  <div class="swiper-slide">
+    <a href="../Projects/Project-12/index.html" class="slider__card">
+      <img src="./imgs/cards/Rectangle 101-31.png" alt="" class="card__img" />
+      <div class="card__info">
+        <div class="marquee__text marquee-4">
+                        <div>
+                          <h2>
+                            Formación en Proyectos Sociales y Apoyo Emocional
+                          </h2>
+                          <h2>
+                            Formación en Proyectos Sociales y Apoyo Emocional
+                          </h2>
+                        </div>
+                      </div>
+        <p>julio de 2024</p>
+      </div>
+    </a>
+  </div>
+  <div class="swiper-slide">
+    <a href="../Projects/Project-13/index.html" class="slider__card">
+      <img src="./imgs/cards/image-1.png" alt="" class="card__img" />
+      <div class="card__info">
+        <div class="marquee__text marquee-5">
+                        <div>
+                          <h2>
+                            Cuarta Edición del Programa de Recuperación y
+                            Liderazgo Social
+                          </h2>
+                          <h2>
+                            Cuarta Edición del Programa de Recuperación y
+                            Liderazgo Social
+                          </h2>
+                        </div>
+                      </div>
+        <p>octubre de 2024</p>
+      </div>
+    </a>
+  </div>`;
   } else {
-    document.querySelectorAll(".slider__cards").forEach((sliderCards) => {
-      const leftButton =
-        sliderCards.parentElement.querySelector(".arrow__left");
-      const rightButton =
-        sliderCards.parentElement.querySelector(".arrow__right");
-      const cardWidth = sliderCards.children[0].offsetWidth + 20; // Ширина картки + відступ
-      const visibleWidth = sliderCards.parentElement.offsetWidth;
-      const cardsPerView = Math.floor(visibleWidth / cardWidth);
-
-      let currentIndex = 0;
-      const totalCards = sliderCards.children.length;
-      const maxIndex = Math.ceil((totalCards - cardsPerView) / 2);
-
-      // Функція для оновлення позиції слайдера
-      function updateSliderPosition() {
-        let translateX;
-
-        // Перевіряємо, чи це останній слайд
-        if (currentIndex === maxIndex) {
-          // Розраховуємо позицію для центрування останньої картки
-          const remainingCards = totalCards % 2 === 0 ? 2 : 1;
-          const centerOffset = (visibleWidth - remainingCards * cardWidth) / 2;
-          translateX = (totalCards - cardsPerView) * cardWidth - centerOffset;
-        } else {
-          translateX = currentIndex * cardWidth * 2;
-        }
-
-        sliderCards.style.transform = `translateX(-${translateX}px)`;
-      }
-
-      // Оновлення позиції слайдера при завантаженні сторінки
-      updateSliderPosition();
-
-      // Обробник для кнопки "вправо"
-      rightButton.addEventListener("click", () => {
-        if (currentIndex < maxIndex) {
-          currentIndex++;
-          updateSliderPosition();
-        }
-      });
-
-      // Обробник для кнопки "вліво"
-      leftButton.addEventListener("click", () => {
-        if (currentIndex > 0) {
-          currentIndex--;
-          updateSliderPosition();
-        }
-      });
-    });
   }
 }
 
 handleMediaChange();
 
 window.addEventListener("resize", handleMediaChange);
-
-document.querySelectorAll(".slider__cards").forEach((sliderCards) => {
-  let currentIndex = 0;
-  let startX = 0;
-  let endX = 0;
-
-  // Функція для оновлення позиції слайдера
-  function updateSliderPosition() {
-    const cardWidth = sliderCards.children[0].offsetWidth + 20; // Ширина картки + відступ
-    sliderCards.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-  }
-
-  // Оновлення позиції слайдера при завантаженні сторінки
-  updateSliderPosition();
-
-  // Перевірка медіавиразу для 375px або менше
-  const mediaQuery = window.matchMedia("(max-width: 375px)");
-
-  function enableSwipe() {
-    // Обробка початку свайпу
-    sliderCards.addEventListener("touchstart", handleTouchStart);
-    // Обробка завершення свайпу
-    sliderCards.addEventListener("touchend", handleTouchEnd);
-  }
-
-  function disableSwipe() {
-    sliderCards.removeEventListener("touchstart", handleTouchStart);
-    sliderCards.removeEventListener("touchend", handleTouchEnd);
-  }
-
-  function handleTouchStart(e) {
-    startX = e.touches[0].clientX; // Запам'ятовуємо початкову позицію
-  }
-
-  function handleTouchEnd(e) {
-    endX = e.changedTouches[0].clientX; // Запам'ятовуємо кінцеву позицію
-    handleSwipe();
-  }
-
-  function handleSwipe() {
-    const swipeDistance = startX - endX;
-
-    // Перевірка напрямку свайпу
-    if (swipeDistance > 50 && currentIndex < sliderCards.children.length - 1) {
-      // Свайп вліво
-      currentIndex++;
-    } else if (swipeDistance < -50 && currentIndex > 0) {
-      // Свайп вправо
-      currentIndex--;
-    }
-    updateSliderPosition();
-  }
-
-  // Функція, що виконує підключення або відключення свайпу відповідно до розміру екрана
-  function handleMediaQueryChange(event) {
-    if (event.matches) {
-      enableSwipe();
-    } else {
-      disableSwipe();
-    }
-  }
-
-  // Додаємо слухача для зміни медіавиразу
-  mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-  // Ініціалізуємо свайп на початковому завантаженні, якщо екран 375px або менше
-  if (mediaQuery.matches) {
-    enableSwipe();
-  }
-});
 
 const menuBoxes = document.querySelectorAll("#menuBox");
 const menuButtons = document.querySelectorAll("#menuButton");
